@@ -59,13 +59,12 @@
                 </div>
             </div>
             <div class="col-md-12 py-5 text-white">
-                <div class="card card-body border-0 shadow bg-dark text-white">
+                <div class="card card-body border-0 bg-dark shadow text-white">
                     <h2 class="text-center">Course Description</h2>
                     <hr/>
-                    <span class="" style="color: white;">{!! $course->description !!}</span>
+                    <span class="text-white">{!! $course->description !!}</span>
                 </div>
             </div>
-
         </div>
     </section>
     {{--section-1 end--}}

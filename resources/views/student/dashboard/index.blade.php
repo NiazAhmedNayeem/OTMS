@@ -15,7 +15,7 @@
                     <div class="card card-body my-caption">
                         <ul class="list-group fw-bold">
                             <li class="list-group-item my-caption"><a href="" class="text-decoration-none">My Profile</a> </li><hr class="mt-1 py-0 mb-0"/>
-                            <li class="list-group-item my-caption"><a href="" class="text-decoration-none">My Course</a> </li><hr class="mt-1 py-0 mb-0"/>
+                            <li class="list-group-item my-caption"><a href="{{route('student.all-course')}}" class="text-decoration-none">My Courses</a> </li><hr class="mt-1 py-0 mb-0"/>
                             <li class="list-group-item my-caption"><a href="" class="text-decoration-none">Change Password</a> </li><hr class="mt-1 py-0 mb-0"/>
                             <li class="list-group-item my-caption"><a href="" class="text-decoration-none">My Dashboard</a> </li>
                         </ul>

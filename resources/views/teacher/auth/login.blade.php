@@ -55,6 +55,7 @@
                             </a>
                         </div>
                         <div class="p-2">
+                            <h4 class="text-center text-danger">{{Session::get('message')}}</h4>
                             <form class="form-horizontal" action="{{route('teacher.login')}}" method="POST">
                                 @csrf
                                 <div class="form-group">

@@ -20,6 +20,8 @@
                     <div class="card border-0 bg-dark text-white">
                         <div class="card-header text-center"><h3>Login Form</h3></div>
                         <div class="card-body">
+                            <h4 class="text-center text-danger mb-3">{{Session::get('message')}}</h4>
+
                             <form action="{{route('student.login')}}" method="post">
                                 @csrf
                                 <div class="row mb-3">

@@ -9,7 +9,7 @@ use Session;
 
 class EnrollController extends Controller
 {
-    private $student, $enroll;
+    private $student, $enroll, $enrollExist;
 
     public function index($id)
     {
@@ -33,6 +33,12 @@ class EnrollController extends Controller
                 'mobile' => 'required|unique:students,mobile',
             ]);
             $this->student = Student::newStudent($request);
+        }
+
+        $this->enrollExist = Enroll::where(['student_id' => $this->student->id, 'course_id'=> $id])->first();
+        if ($this->enrollExist)
+        {
+            return redirect()->back()->with('message', 'Sorry...you already enroll this course.');
         }
 
         $this->enroll = Enroll::newEnroll($request, $this->student->id, $id);
