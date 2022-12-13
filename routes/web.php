@@ -45,6 +45,7 @@ Route::middleware('student')->group(function (){
 });
 
 Route::post('/student-login', [StudentAuthController::class, 'login'])->name('student.login');
+
 //Route::get('/student-register', [StudentAuthController::class, 'register'])->name('student.register');
 
 
@@ -65,6 +66,7 @@ Route::middleware('teacher')->group(function (){
 });
 
 Route::get('/teacher/login', [TeacherAuthController::class, 'index'])->name('teacher.login');
+Route::post('/teacher/login', [TeacherAuthController::class, 'login'])->name('teacher.login');
 
 
 
