@@ -27,17 +27,22 @@
                 </li>
                 <li><a href="{{route('training.all')}}" class="nav-link m-1 btn btn-outline-success border-0 text-white">All Training</a></li>
                 <li><a href="{{route('contact')}}" class="nav-link m-1 btn btn-outline-success border-0 text-white">Contact</a></li>
-
                 @if(Session::get('student_id'))
                     <li class="dropdown">
                         <a href="" class="nav-link m-1 btn btn-outline-info border-0 text-white dropdown-toggle" data-bs-toggle="dropdown">{{Session::get('student_name')}}</a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{route('student.dashboard')}}" class="dropdown-item fw-bold">My Dashboard</a> </li>
-                            <li><a href="{{route('student.logout')}}" class="dropdown-item text-danger fw-bold">Logout</a> </li>
+                            <li><a href="{{route('student.dashboard')}}" class="dropdown-item text-capitalize fw-bold"><i class="fa-solid fa-address-card"></i>&ensp; My Dashboard</a> </li>
+                            <li><a href="{{route('student.logout')}}" class="dropdown-item text-danger text-capitalize fw-bold"><i class="fa-solid fa-right-from-bracket"></i>&ensp; Logout</a> </li>
                         </ul>
                     </li>
                 @else
-                    <li><a href="{{route('login-registration')}}" class="nav-link m-1 btn btn-outline-info border-0 text-white">Login-Registration</a></li>
+                    <li class="dropdown">
+                        <a href="" class="nav-link m-1 btn btn-outline-danger border-0 text-white dropdown-toggle" data-bs-toggle="dropdown">Login-Sign up</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{route('login-registration')}}" class="dropdown-item fw-bold text-capitalize"><i class="fa-solid fa-user"></i>&ensp;As a Student</a> </li>
+                            <li><a href="{{route('teacher.login')}}" target="_blank" class="dropdown-item  fw-bold text-capitalize"><i class="fa-solid fa-person-chalkboard"></i>&ensp;As a Teacher</a> </li>
+                        </ul>
+                    </li>
                 @endif
             </ul>
         </div>
@@ -65,20 +70,7 @@
                         </ul>
                     </div>
                 </div>
-{{--                <div class="col-md-3">--}}
-{{--                    <div class="card card-body h-100 border-0 bg-transparent text-white">--}}
-{{--                        <h3>Contact With US</h3>--}}
-{{--                        <address class="text-muted">--}}
-{{--                            House No - 420, Road No - 520, Dhanmondi, Dhaka - 1215.--}}
-{{--                        </address>--}}
-{{--                        <h3>Follow Us</h3>--}}
-{{--                        <ul class="nav text-muted">--}}
-{{--                            <li><a href="" class="nav-link"><i class="fa-brands fa-square-facebook"></i></a></li>--}}
-{{--                            <li><a href="" class="nav-link"><i class="fa-brands fa-square-twitter"></i></a></li>--}}
-{{--                            <li><a href="" class="nav-link"><i class="fa-brands fa-linkedin"></i></a></li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+
                 <div class="col-md-3">
                     <div class="card card-body h-100 bg-dark text-white border-0">
                         <h3 class="">Contact with us</h3>

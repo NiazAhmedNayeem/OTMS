@@ -29,30 +29,34 @@ Route::get('/about-us', [HomeController::class, 'about'])->name('about');
 Route::get('/training-category/{id}', [HomeController::class, 'categoryTraining'])->name('training.category');
 Route::get('/all-training', [HomeController::class, 'allTraining'])->name('training.all');
 Route::get('/training-detail/{id}', [HomeController::class, 'trainingDetail'])->name('training.detail');
-
-//Enroll Route here
-Route::get('/training-enroll/{id}', [EnrollController::class, 'index'])->name('training.enroll');
-Route::post('/training-new-enroll/{id}', [EnrollController::class, 'newEnroll'])->name('training.new-enroll');
-Route::get('/training-complete-enroll/{id}', [EnrollController::class, 'completeEnroll'])->name('training.complete-enroll');
-
-
-Route::middleware('student')->group(function (){
-    Route::get('/student-dashboard', [StudentAuthController::class, 'dashboard'])->name('student.dashboard');
-    Route::get('/student-all-course', [StudentController::class, 'allCourse'])->name('student.all-course');
-
-    Route::get('/student-logout', [StudentAuthController::class, 'logout'])->name('student.logout');
-
-});
-
-Route::post('/student-login', [StudentAuthController::class, 'login'])->name('student.login');
-
-//Route::get('/student-register', [StudentAuthController::class, 'register'])->name('student.register');
-
-
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 Route::get('/login-registration', [HomeController::class, 'loginRegistration'])->name('login-registration');
 
+//Home Routes end Here
 
+
+//Enroll Routes start here
+Route::get('/training-enroll/{id}', [EnrollController::class, 'index'])->name('training.enroll');
+Route::post('/training-new-enroll/{id}', [EnrollController::class, 'newEnroll'])->name('training.new-enroll');
+Route::get('/training-complete-enroll/{id}', [EnrollController::class, 'completeEnroll'])->name('training.complete-enroll');
+//Enroll Routes end here
+
+
+//Student routes start here
+Route::middleware('student')->group(function (){
+    Route::get('/student-dashboard', [StudentAuthController::class, 'dashboard'])->name('student.dashboard');
+    Route::get('/student-all-course', [StudentController::class, 'allCourse'])->name('student.all-course');
+    Route::get('/student-logout', [StudentAuthController::class, 'logout'])->name('student.logout');
+});
+
+Route::post('/student-login', [StudentAuthController::class, 'login'])->name('student.login');
+Route::post('/student-register', [StudentAuthController::class, 'register'])->name('student.register');
+//Student routes end here
+
+
+
+
+//Teacher routes start here
 Route::middleware('teacher')->group(function (){
     Route::get('/teacher/dashboard', [TeacherAuthController::class, 'dashboard'])->name('teacher.dashboard');
     Route::post('/teacher/logout', [TeacherAuthController::class, 'logout'])->name('teacher.logout');
@@ -67,12 +71,12 @@ Route::middleware('teacher')->group(function (){
 
 Route::get('/teacher/login', [TeacherAuthController::class, 'index'])->name('teacher.login');
 Route::post('/teacher/login', [TeacherAuthController::class, 'login'])->name('teacher.login');
+//Teacher routes end here
 
 
 
 
-
-//Middleware Routes Start Here
+//Admin and Teacher middleware Routes Start Here
 Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

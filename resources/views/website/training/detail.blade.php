@@ -9,12 +9,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="card card-body shadow border-0 bg-dark">
+                    <div class="card card-body shadow border-0 bg-dark mb-3">
                         <img src="{{asset($course->image)}}" class="" height="400"/>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="card shadow border-0 bg-dark text-white">
+                    <div class="card shadow border-0 bg-dark text-white mb-3">
                         <div class="card-header bg-transparent text-center">
                             <h3>Course details</h3>
                         </div>

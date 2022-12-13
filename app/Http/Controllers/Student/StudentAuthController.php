@@ -25,7 +25,6 @@ class StudentAuthController extends Controller
             else
             {
                 return redirect()->back()->with('message', 'Sorry... your password is invalid');
-
             }
         }
         else
@@ -35,8 +34,19 @@ class StudentAuthController extends Controller
     }
     public function register(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required|regex:/^[a-zA-Z- ]+$/',
+            'email' => 'required|unique:students,email',
+            'mobile' => 'required|unique:students,mobile',
+            'password' => 'required',
 
+        ]);
+        $this->student = Student::newStudent($request);
+        Session::put('student_id', $this->student->id);
+        Session::put('student_name', $this->student->name);
+        return redirect('/student-dashboard');
     }
+
     public function dashboard()
     {
         return view('student.dashboard.index');

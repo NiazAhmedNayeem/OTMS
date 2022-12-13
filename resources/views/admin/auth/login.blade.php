@@ -40,7 +40,7 @@
                                 </div>
                             </div>
                             <div class="col-5 align-self-end">
-                                <img src="{{asset('/')}}admin/aassets/images/profile-img.png" alt="" class="img-fluid">
+                                <img src="{{asset('/')}}admin/assets/images/profile-img.png" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                             <a href="index.html">
                                 <div class="avatar-md profile-user-wid mb-4">
                                             <span class="avatar-title rounded-circle bg-light">
-                                                <img src="{{asset('/')}}admin/aassets/images/logo.svg" alt="" class="rounded-circle" height="34">
+                                                <img src="{{asset('/')}}admin/assets/images/logo.svg" alt="" class="rounded-circle" height="34">
                                             </span>
                                 </div>
                             </a>
@@ -112,7 +112,7 @@
 
                     <div>
                         <p>Don't have an account ? <a href="auth-register.html" class="font-weight-medium text-primary"> Signup now </a> </p>
-                        <p>© 2020 Skote. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                        <p>© 2022 OTMS all right reserved.</p>
                     </div>
                 </div>
 

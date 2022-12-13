@@ -11,9 +11,9 @@ class HomeController extends Controller
     public function index()
     {
         return view('website.home.index', [
-            'recent_courses' => Course::where('status', 1)->orderBy('id', 'desc')->take(8)->get(),
-            'offer_courses'  => Course::where('offer_status', 1)->orderBy('id', 'desc')->take(4)->get(),
-            'courses'  => Course::where('status', 1)->orderBy('id', 'desc')->take(3)->get(),
+            'recent_courses' => Course::where('status', 1)->orderBy('id', 'desc')->take(9)->get(),
+            'offer_courses'  => Course::where('offer_status', 1)->orderBy('id', 'desc')->take(10)->get(),
+            'courses'  => Course::where('status', 1)->orderBy('id', 'desc')->take(6)->get(),
         ]);
     }
 
@@ -29,7 +29,7 @@ class HomeController extends Controller
 
     public function allTraining()
     {
-        return view('website.training.index', ['courses' => Course::where('status', 1)->orderBy('id', 'desc')->simplePaginate(3)]);
+        return view('website.training.index', ['courses' => Course::where('status', 1)->orderBy('id', 'desc')->simplePaginate(6)]);
     }
 
     public function trainingDetail($id)

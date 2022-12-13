@@ -1,7 +1,7 @@
 @extends('website.master')
 
 @section('title')
-    Login / Registration
+    Login - Registration
 @endsection
 
 
@@ -50,11 +50,18 @@
                     <div class="card text-white bg-dark">
                         <div class="card-header text-center"><h3>Registration Form</h3></div>
                         <div class="card-body">
-                            <form action="" method="post">
+                            <form action="{{route('student.register')}}" method="post">
+                                @csrf
                                 <div class="row mb-3">
                                     <label class="col-md-3">Full Name</label>
                                     <div class="col-md-9">
                                         <input type="text" class="form-control" name="name" placeholder="Your full name"/>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-md-3">Mobile Number</label>
+                                    <div class="col-md-9">
+                                        <input type="number" class="form-control" name="mobile" placeholder="Your mobile number"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
