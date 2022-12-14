@@ -21,9 +21,10 @@ class AdminEnrollController extends Controller
     }
     public function updateStatus(Request $request, $id)
     {
-
+        Enroll::updateEnrollStatus($request, $id);
+        return redirect('/admin/manage-enroll')->with('message', 'Enroll status info update successfully');
     }
-    public function update($id)
+    public function delete($id)
     {
         return $id;
     }

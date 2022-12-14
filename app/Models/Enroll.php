@@ -31,9 +31,33 @@ class Enroll extends Model
     {
         return $this->belongsTo(Student::class);
     }
-    public static function updateEnrollStatus($id)
+    public static function updateEnrollStatus($request, $id)
     {
         self::$enroll = Enroll::find($id);
-
+        if ($request->enroll_status == 'Pending')
+        {
+            self::$enroll->enroll_status = 'Pending';
+            self::$enroll->payment_status = 'Pending';
+            self::$enroll->payment_amount = 0;
+        }
+        elseif ($request->enroll_status == 'Processing')
+        {
+            self::$enroll->enroll_status = 'Processing';
+            self::$enroll->payment_status = 'Processing';
+            self::$enroll->payment_amount = 0;
+        }
+        elseif ($request->enroll_status == 'Complete')
+        {
+            self::$enroll->enroll_status = 'Complete';
+            self::$enroll->payment_status = 'Complete';
+            self::$enroll->payment_amount = self::$enroll->course->fee;
+        }
+        elseif ($request->enroll_status == 'Cancel')
+        {
+            self::$enroll->enroll_status = 'Cancel';
+            self::$enroll->payment_status = 'Cancel';
+            self::$enroll->payment_amount = 0;
+        }
+        self::$enroll->save();
     }
 }

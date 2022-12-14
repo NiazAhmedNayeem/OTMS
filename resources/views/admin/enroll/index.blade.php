@@ -27,13 +27,13 @@
                                 <td>{{$enroll->student->name. '(' .$enroll->student->mobile. ')'}}</td>
                                 <td>{{$enroll->enroll_status}}</td>
                                 <td>
-                                    <a href="{{route('admin.enroll-detail', ['id' => $enroll->id])}}" class="btn btn-outline-success">
+                                    <a href="{{route('admin.enroll-detail', ['id' => $enroll->id])}}" class="btn btn-success">
                                         <i class="fa fa-book-open"></i>
                                     </a>
-                                    <a href="{{route('admin.edit-enroll-status', ['id' => $enroll->id])}}" class="btn btn-outline-info" >
+                                    <a href="{{route('admin.edit-enroll-status', ['id' => $enroll->id])}}" class="btn btn-info {{$enroll->enroll_status == 'Complete' ? 'disabled' : ''}}">
                                         <i class="fa fa-arrow-up"></i>
                                     </a>
-                                    <a href="{{route('admin.delete-enroll', ['id' => $enroll->id])}}" class="btn btn-outline-danger" >
+                                    <a href="{{route('admin.delete-enroll', ['id' => $enroll->id])}}" class="btn btn-danger {{$enroll->enroll_status == 'Complete' ? 'disabled' : ''}}" >
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </td>

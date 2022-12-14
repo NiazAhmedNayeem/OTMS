@@ -22,10 +22,10 @@
                             <div class="col-md-9">
                                 <select class="form-control" required name="enroll_status">
                                     <option value="" disabled selected> -- Enroll Status -- </option>
-                                    <option value="pending" {{$enroll->enroll_status == 'Pending' ? 'Selected' : ''}}>Pending</option>
-                                    <option value="processing" {{$enroll->enroll_status == 'Processing' ? 'Selected' : ''}}>Processing</option>
-                                    <option value="complete" {{$enroll->enroll_status == 'Complete' ? 'Selected' : ''}}>Complete</option>
-                                    <option value="cancel" {{$enroll->enroll_status == 'Cancel' ? 'Selected' : ''}}>Cancel</option>
+                                    <option value="Pending" {{$enroll->enroll_status == 'Pending' ? 'Selected' : ''}}>Pending</option>
+                                    <option value="Processing" {{$enroll->enroll_status == 'Processing' ? 'Selected' : ''}}>Processing</option>
+                                    <option value="Complete" {{$enroll->enroll_status == 'Complete' ? 'Selected' : ''}}>Complete</option>
+                                    <option value="Cancel" {{$enroll->enroll_status == 'Cancel' ? 'Selected' : ''}}>Cancel</option>
                                 </select>
                             </div>
                         </div>
