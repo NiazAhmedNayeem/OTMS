@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use function Symfony\Component\Finder\searchInDirectory;
 
 class Enroll extends Model
 {
@@ -25,5 +26,14 @@ class Enroll extends Model
     public function course()
     {
         return $this->belongsTo(Course::class);
+    }
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
+    }
+    public static function updateEnrollStatus($id)
+    {
+        self::$enroll = Enroll::find($id);
+
     }
 }

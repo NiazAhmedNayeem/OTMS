@@ -499,7 +499,7 @@
                             <span>Enroll Module</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="email-inbox.html">Manage Enroll</a></li>
+                            <li><a href="{{route('admin.manage-enroll')}}">Manage Enroll</a></li>
                         </ul>
                     </li>
 

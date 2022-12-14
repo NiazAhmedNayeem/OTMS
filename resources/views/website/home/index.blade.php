@@ -14,7 +14,7 @@
                 <div class="carousel-caption my-caption">
                     <h3>{{$offer_course->title}}</h3>
                     <h5>Offer Date: {{$offer_course->offer_date}}</h5>
-                    <a href="{{route('training.detail', ['id' => $offer_course->id])}}" class="btn btn-dark px-5">Read More</a>
+                    <a href="{{route('training.detail', ['id' => $offer_course->id])}}" class="btn btn-danger px-5">Read More</a>
                 </div>
             </div>
             @endforeach
@@ -44,7 +44,7 @@
                         <div class="card-body d-flex flex-column">
                             <div style="height: 90px;">
                                 <h4><a class="text-decoration-none text-white" href="{{route('training.detail', ['id' => $recent_course->id])}}" >{{$recent_course->title}}</a> </h4>
-                            </div>
+                            </div><hr class="shadow mt-1 py-0 bt-1"/>
                             <p class="mb-0 text-white">TK. {{$recent_course->fee}}/=</p>
                             <p class="text-white">Starting Date: {{$recent_course->starting_date}}</p>
                             <hr/>
