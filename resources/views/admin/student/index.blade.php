@@ -5,35 +5,34 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">All Enroll Course Information</h4>
+                    <h4 class="card-title">All Student Information</h4>
                     <p class="card-title-desc text-success">{{Session::get('message')}}</p>
 
                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
                             <th>SL NO</th>
-                            <th>Course Title</th>
-                            <th>Student Info</th>
-                            <th>Enroll Status</th>
+                            <th>Student Name</th>
+                            <th>Email Address</th>
+                            <th>Mobile Number</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($enrolls as $enroll)
+                        @foreach($students as $student)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$enroll->course->title}}</td>
-                                <td>{{$enroll->student->name. '(' .$enroll->student->mobile. ')'}}</td>
-                                <td>{{$enroll->enroll_status}}</td>
+                                <td>{{$student->name}}</td>
+                                <td>{{$student->email}}</td>
+                                <td>{{$student->mobile}}</td>
+                                <td>{{$student->status == 1 ? 'Active' : 'Inactive'}}</td>
                                 <td>
-                                    <a href="{{route('admin.enroll-detail', ['id' => $enroll->id])}}" class="btn btn-success">
+                                    <a href="{{route('admin.student-detail', ['id' => $student->id])}}" class="btn btn-success">
                                         <i class="fa fa-book-open"></i>
                                     </a>
-                                    <a href="{{route('admin.edit-enroll-status', ['id' => $enroll->id])}}" class="btn btn-info {{$enroll->enroll_status == 'Complete' ? 'disabled' : ''}}">
+                                    <a href="{{route('admin.student-status', ['id' => $student->id])}}" class="btn btn-info" >
                                         <i class="fa fa-arrow-up"></i>
-                                    </a>
-                                    <a href="{{route('admin.delete-enroll', ['id' => $enroll->id])}}" class="btn btn-danger {{$enroll->enroll_status == 'Complete' ? 'disabled' : ''}}" >
-                                        <i class="fa fa-trash"></i>
                                     </a>
                                 </td>
                             </tr>

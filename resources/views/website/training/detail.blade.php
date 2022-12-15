@@ -62,7 +62,7 @@
                 <div class="card card-body border-0 bg-dark shadow text-white">
                     <h2 class="text-center">Course Description</h2>
                     <hr/>
-                    <span class="text-white">{!! $course->description !!}</span>
+                    <div id="detail" class="">{!! $course->description !!}</div>
                 </div>
             </div>
         </div>

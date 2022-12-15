@@ -43,3 +43,13 @@
 .my-bg-color{
     background-color: #2a3042;
 }
+
+#detail li{
+    color: red !important;
+}
+#detail p{
+    color: red !important;
+}
+#detail h1{
+    color: red !important;
+}

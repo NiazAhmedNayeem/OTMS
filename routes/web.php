@@ -12,6 +12,8 @@ use App\Http\Controllers\EnrollController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Student\StudentAuthController;
 use App\Http\Controllers\AdminEnrollController;
+use App\Http\Controllers\AdminStudentController;
+use App\Http\Controllers\AdminUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,11 +105,19 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
     Route::post('/admin/update-course-offer/{id}', [AdminCourseController::class, 'updateCourseOffer'])->name('admin.update-course-offer');
     Route::get('/admin/course-delete/{id}', [AdminCourseController::class, 'delete'])->name('admin.course-delete');
 
-
     Route::get('/admin/manage-enroll', [AdminEnrollController::class, 'index'])->name('admin.manage-enroll');
     Route::get('/admin/enroll-detail/{id}', [AdminEnrollController::class, 'detail'])->name('admin.enroll-detail');
     Route::get('/admin/edit-enroll-status/{id}', [AdminEnrollController::class, 'editStatus'])->name('admin.edit-enroll-status');
     Route::post('/admin/update-enroll-status/{id}', [AdminEnrollController::class, 'updateStatus'])->name('admin.update-enroll-status');
     Route::get('/admin/delete-enroll/{id}', [AdminEnrollController::class, 'delete'])->name('admin.delete-enroll');
+
+    Route::get('/admin/manage-student', [AdminStudentController::class, 'index'])->name('admin.manage-student');
+    Route::get('/admin/student-detail/{id}', [AdminStudentController::class, 'detail'])->name('admin.student-detail');
+    Route::get('/admin/student-status/{id}', [AdminStudentController::class, 'updateStatus'])->name('admin.student-status');
+
+
+    Route::get('/admin/create-admin', [AdminUserController::class, 'index'])->name('admin.user-add');
+    Route::post('/admin/created-admin', [AdminUserController::class, 'create'])->name('admin.create-admin');
+    Route::get('/admin/manage-admin', [AdminUserController::class, 'manage'])->name('admin.manage-admin');
 
 });

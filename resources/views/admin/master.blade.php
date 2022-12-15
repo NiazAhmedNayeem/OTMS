@@ -6,7 +6,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Dashboard | Skote - Responsive Bootstrap 4 Admin Dashboard</title>
+    <title>Dashboard | Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -489,7 +489,7 @@
                             <span>Student Module</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="crypto-wallet.html">Manage Student</a></li>
+                            <li><a href="{{route('admin.manage-student')}}">Manage Student</a></li>
                         </ul>
                     </li>
 
@@ -509,8 +509,8 @@
                             <span>User Module</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="invoices-list.html">Add User</a></li>
-                            <li><a href="invoices-detail.html">Manage USer</a></li>
+                            <li><a href="{{route('admin.user-add')}}">Add User</a></li>
+                            <li><a href="{{route('admin.manage-admin')}}">Manage USer</a></li>
                         </ul>
                     </li>
 
