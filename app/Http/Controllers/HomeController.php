@@ -2,18 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\EnrollConfirmationMail;
 use App\Models\Category;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
+    public function sendMail()
+    {
+        Mail::to('niazahmed.net@gmail.com')->send(new EnrollConfirmationMail());
+        return 'success';
+    }
+
+
+
+
     public function index()
     {
         return view('website.home.index', [
             'recent_courses' => Course::where('status', 1)->orderBy('id', 'desc')->take(9)->get(),
             'offer_courses'  => Course::where('offer_status', 1)->orderBy('id', 'desc')->take(10)->get(),
             'courses'  => Course::where('status', 1)->orderBy('id', 'desc')->take(6)->get(),
+            'popular_courses' => Course::where('status', 1)->orderBy('hit_count', 'desc')->take(6)->get(),
         ]);
     }
 

@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Enroll;
 use Illuminate\Http\Request;
 
 class AdminCourseController extends Controller
 {
+    private $enroll;
+
     public function index()
     {
         return view('admin.course.index', ['courses' => Course::orderBy('id', 'desc')->get()]);
@@ -31,5 +34,15 @@ class AdminCourseController extends Controller
     {
         Course::updateCourseOffer($request, $id);
         return redirect('/admin/manage-course')->with('message', 'Course offer info updated.');
+    }
+
+    public function delete($id)
+    {
+        $this->enroll = Enroll::where('course_id', $id)->first();
+        if ($this->enroll)
+        {
+            return redirect()->back()->with('message', 'Sorry.. you can not delete this course. Because some one already enroll this course.');
+        }
+        Course::deleteCourse($id);
     }
 }

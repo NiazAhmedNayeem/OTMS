@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Enroll;
 use Illuminate\Http\Request;
+use PDF;
 
 class AdminEnrollController extends Controller
 {
@@ -14,6 +15,14 @@ class AdminEnrollController extends Controller
     public function detail($id)
     {
         return view('admin.enroll.detail', ['enroll' => Enroll::find($id)]);
+    }
+    public function download($id)
+    {
+        $pdf = PDF::loadView('admin.enroll.invoice');
+        return $pdf->stream('pdf_file.pdf');
+//        return $pdf->download('pdf_file.pdf');
+
+//        return view('admin.enroll.invoice');
     }
     public function editStatus($id)
     {

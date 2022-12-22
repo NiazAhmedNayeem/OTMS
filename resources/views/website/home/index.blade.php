@@ -67,18 +67,18 @@
                 </div>
             </div>
             <div class="row mt-3">
-                @foreach($courses as $course)
+                @foreach($popular_courses as $popular_course)
                 <div class="col-md-4 mb-3">
                     <div class="card my-caption text-white border-0">
-                        <img src="{{asset($course->image)}}" alt="" class="" height="250"/>
+                        <img src="{{asset($popular_course->image)}}" alt="" class="" height="250"/>
                         <div class="card-body d-flex flex-column">
                             <div style="height: 90px;">
-                                <h4><a class="text-decoration-none text-white" href="{{route('training.detail', ['id' => $course->id])}}" >{{$course->title}}</a> </h4>
+                                <h4><a class="text-decoration-none text-white" href="{{route('training.detail', ['id' => $popular_course->id])}}" >{{$popular_course->title}}</a> </h4>
                             </div>
-                            <p class="mb-0">TK. {{$course->fee}}/=</p>
-                            <p class="">Starting {{$course->starting_date}}</p>
+                            <p class="mb-0">TK. {{$popular_course->fee}}/=</p>
+                            <p class="">Starting {{$popular_course->starting_date}}</p>
                             <hr/>
-                            <a href="{{route('training.detail', ['id' => $course->id])}}" class="btn btn-success mt-auto">Read More</a>
+                            <a href="{{route('training.detail', ['id' => $popular_course->id])}}" class="btn btn-success mt-auto">Read More</a>
                         </div>
                     </div>
                 </div>

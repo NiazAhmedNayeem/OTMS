@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    private $courses;
+
     public function index()
     {
         return view('admin.category.index');
@@ -36,7 +39,20 @@ class CategoryController extends Controller
 
     public function delete($id)
     {
+        $this->courses = Course::where('category_id', $id)->get();
+        if($this->courses)
+        {
+            foreach ($this->courses as $course)
+            {
+                if ($course->status == 1)
+                {
+                    return redirect()->back()->with('message', 'Sorry.. you can not delete this category. Because some one already enroll this category.');
+                }
+            }
+        }
+
         Category::deleteCategory($id);
+        Course::deleteCategoryCourse($id);
         return redirect('/category/manage')->with('message', 'Category info delete successfully');
     }
 }

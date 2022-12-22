@@ -29,6 +29,9 @@
                                     <a href="{{route('admin.enroll-detail', ['id' => $enroll->id])}}" class="btn btn-success">
                                         <i class="fa fa-book-open"></i>
                                     </a>
+                                    <a href="{{route('admin.download-invoice', ['id' => $enroll->id])}}" class="btn btn-primary">
+                                        <i class="fa fa-download"></i>
+                                    </a>
                                     <a href="{{route('admin.edit-enroll-status', ['id' => $enroll->id])}}" class="btn btn-info {{$enroll->enroll_status == 'Complete' ? 'disabled' : ''}}">
                                         <i class="fa fa-arrow-up"></i>
                                     </a>

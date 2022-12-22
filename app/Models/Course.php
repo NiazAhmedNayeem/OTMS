@@ -9,7 +9,7 @@ class Course extends Model
 {
     use HasFactory;
 
-    private static $course, $image, $imageUrl, $imageName, $extension, $directory, $message;
+    private static $course, $image, $imageUrl, $imageName, $extension, $directory, $message, $courses;
 
     public static function getImageUrl($request)
     {
@@ -117,5 +117,18 @@ class Course extends Model
         self::$course->hit_count = self::$course->hit_count + 1;
         self::$course->save();
         return self::$course;
+    }
+
+    public static function deleteCategoryCourse($id)
+    {
+        self::$courses = Course::where('category_id', $id)->get();
+        foreach (self::$courses as $course)
+        {
+            if (file_exists($course->image))
+            {
+                unlink($course->image);
+            }
+            $course->delete();
+        }
     }
 }
