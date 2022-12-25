@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\EnrollConfirmationMail;
 use App\Models\Enroll;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Session;
+use Mail;
 
 class EnrollController extends Controller
 {
-    private $student, $enroll, $enrollExist;
+    private $student, $enroll, $enrollExist, $emailData = [];
 
     public function index($id)
     {
@@ -45,6 +47,20 @@ class EnrollController extends Controller
 
         Session::put('student_id', $this->student->id);
         Session::put('student_name', $this->student->name);
+
+        ///======sent mail option start here=======///
+
+        $this->emailData = [
+            'name' => $this->student->name,
+            'login_url' => 'http://127.0.0.1:8000/login-registration',
+            'email' => $this->student->email,
+            'password' => $this->student->mobile,
+            ];
+
+        Mail::to($this->student->email)->send(new EnrollConfirmationMail($this->emailData));
+
+        ///======sent mail option start here=======///
+
 
         return redirect('/training-complete-enroll/'. $this->enroll->id);
     }

@@ -12,15 +12,15 @@ use Illuminate\Queue\SerializesModels;
 class EnrollConfirmationMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public $value;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->value = $data;
     }
 
     /**

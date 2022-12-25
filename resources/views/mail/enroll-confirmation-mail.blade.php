@@ -8,11 +8,11 @@
     <title>Document</title>
     <style>
         .div-one{
-            height: 300px;
-            width: 800px;
-            background-color: red;
+            height: auto;
+            width: 60%;
+            margin: 0 auto;
+            background-color: #2a3042;
             color: white;
-            font-size: 40px;
             text-align: center;
             padding: 40px;
         }
@@ -20,7 +20,13 @@
 </head>
 <body>
     <div class="div-one">
-        This is mail body.
+        <h4>Congratulation {{$value['name']}}, your enroll submit successfully. You may see your enroll status after login.</h4>
+        <h5>Your login credential is given bellow:</h5>
+        <p>Login URL: <a href="{{$value['login_url']}}" target="_blank">Click here for login</a> </p>
+        <p>Email: {{$value['email']}}</p>
+        <p>Password: {{$value['password']}}</p>
+        <hr/>
+        <p>Thank you..</p>
     </div>
 </body>
 </html>

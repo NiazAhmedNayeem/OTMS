@@ -10,14 +10,15 @@ use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
-    public function sendMail()
-    {
-        Mail::to('niazahmed.net@gmail.com')->send(new EnrollConfirmationMail());
-        return 'success';
-    }
-
-
-
+//    private $data = [];
+//
+//    public function sendMail()
+//    {
+//        $this->data = ['name' => 'BITM', 'course' => 'Laravel'];
+//        Mail::to('niazahmed.net@gmail.com')->send(new EnrollConfirmationMail($this->data));
+//        return 'success';
+//    }
+//
 
     public function index()
     {

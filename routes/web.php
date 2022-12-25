@@ -4,13 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TeacherController;
-use App\Http\Controllers\TeacherAuthController;
-use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdminCourseController;
 use App\Http\Controllers\EnrollController;
-use App\Http\Controllers\StudentController;
-use App\Http\Controllers\Student\StudentAuthController;
 use App\Http\Controllers\AdminEnrollController;
 use App\Http\Controllers\AdminStudentController;
 use App\Http\Controllers\AdminUserController;
@@ -27,10 +23,7 @@ use App\Http\Controllers\AdminUserController;
 */
 
 //Home Routes Start Here
-Route::get('/send-mail', [HomeController::class, 'sendMail'])->name('send-mail');
-
-
-
+//Route::get('/send-mail', [HomeController::class, 'sendMail'])->name('send-mail');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [HomeController::class, 'about'])->name('about');
@@ -48,38 +41,6 @@ Route::get('/training-enroll/{id}', [EnrollController::class, 'index'])->name('t
 Route::post('/training-new-enroll/{id}', [EnrollController::class, 'newEnroll'])->name('training.new-enroll');
 Route::get('/training-complete-enroll/{id}', [EnrollController::class, 'completeEnroll'])->name('training.complete-enroll');
 //Enroll Routes end here
-
-
-//Student routes start here
-Route::middleware('student')->group(function (){
-    Route::get('/student-dashboard', [StudentAuthController::class, 'dashboard'])->name('student.dashboard');
-    Route::get('/student-all-course', [StudentController::class, 'allCourse'])->name('student.all-course');
-    Route::get('/student-logout', [StudentAuthController::class, 'logout'])->name('student.logout');
-});
-
-Route::post('/student-login', [StudentAuthController::class, 'login'])->name('student.login');
-Route::post('/student-register', [StudentAuthController::class, 'register'])->name('student.register');
-//Student routes end here
-
-
-
-
-//Teacher routes start here
-Route::middleware('teacher')->group(function (){
-    Route::get('/teacher/dashboard', [TeacherAuthController::class, 'dashboard'])->name('teacher.dashboard');
-    Route::post('/teacher/logout', [TeacherAuthController::class, 'logout'])->name('teacher.logout');
-
-    Route::get('/course/add', [CourseController::class, 'index'])->name('course.add');
-    Route::post('/course/create', [CourseController::class, 'create'])->name('course.create');
-    Route::get('/course/manage', [CourseController::class, 'manage'])->name('course.manage');
-    Route::get('/course/edit/{id}', [CourseController::class, 'edit'])->name('course.edit');
-    Route::post('/course/update/{id}', [CourseController::class, 'update'])->name('course.update');
-    Route::get('/course/delete/{id}', [CourseController::class, 'delete'])->name('course.delete');
-});
-
-Route::get('/teacher/login', [TeacherAuthController::class, 'index'])->name('teacher.login');
-Route::post('/teacher/login', [TeacherAuthController::class, 'login'])->name('teacher.login');
-//Teacher routes end here
 
 
 

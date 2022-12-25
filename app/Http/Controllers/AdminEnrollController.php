@@ -18,7 +18,7 @@ class AdminEnrollController extends Controller
     }
     public function download($id)
     {
-        $pdf = PDF::loadView('admin.enroll.invoice');
+        $pdf = PDF::loadView('admin.enroll.invoice', ['enroll' => Enroll::find($id)]);
         return $pdf->stream('pdf_file.pdf');
 //        return $pdf->download('pdf_file.pdf');
 

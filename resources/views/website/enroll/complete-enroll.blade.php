@@ -20,11 +20,11 @@
                     <div class="card shadow border-0 my-caption">
                         <div class="card-header text-center"><h3 class="text-white">Course Enroll Status</h3></div>
                         <div class="card-body text-white">
-                            <h5 class="text-success text-center">Congratulation! your registration is complete. Please wait, we will connect with you. </h5><br>
+                            <h5 class="text-success text-center">Congratulation! your registration is complete. Please check your mail for your login credential. Thank you... </h5><br>
                             <h4>Registration Current Status</h4>
                             <table class="table table-bordered text-white">
                                 <thead>
-                                    <tr>
+                                    <tr class="text-center">
                                         <th>Course Enroll</th>
                                         <th>Enroll Status</th>
                                         <th>Payment Status</th>
